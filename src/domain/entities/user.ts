@@ -1,11 +1,14 @@
 export type UserEntity = {
-    id: string | number;
+  id: string | number;
   name: string;
   email: string;
-  password : string; 
-  role : string ; 
-  created_at : Date ; 
-  updated_at : Date ; 
-}
-
+  password: string;
+  role: "admin" | "employee"; 
+  access_token?: string;
+};
+// export type UserRoleModel = [
+//   {
+//       role: string
+//   }
+// ]
 export type AddUserParams = Omit<UserEntity, 'id'>

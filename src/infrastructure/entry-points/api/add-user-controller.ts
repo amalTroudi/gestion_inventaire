@@ -1,6 +1,6 @@
 import { AddUserParams, UserEntity } from "@/domain/entities/user";
 import { ADD_USER_SERVICE, IAddUserService } from "@/domain/use-cases/add-user-service";
-import {Mapping, Post, Body, Adapter} from "@tsclean/core";
+import {Mapping, Get, Post, Adapter, Body} from "@tsclean/core";
 
 @Mapping('api/v1/add-user')
 export class AddUserController {

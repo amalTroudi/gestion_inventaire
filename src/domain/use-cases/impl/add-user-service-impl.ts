@@ -1,8 +1,7 @@
-import {Adapter, Service} from "@tsclean/core";
-import {UserEntity} from "@/domain/entities/user";
-import {AddUserParams} from "@/domain/entities/user";
-import {IAddUserService} from "@/domain/use-cases/add-user-service";
 import { ADD_USER_REPOSITORY, IAddUserRepository } from "@/domain/entities/contracts/add-user-repository";
+import { AddUserParams, UserEntity } from "@/domain/entities/user";
+import { Adapter, Service } from "@tsclean/core";
+import { IAddUserService } from "../add-user-service";
 
 @Service()
 export class AddUserServiceImpl implements IAddUserService {

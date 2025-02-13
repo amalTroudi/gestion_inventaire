@@ -1,7 +1,11 @@
 import { Table, Column, Model,  DataType } from 'sequelize-typescript'
 import { UserEntity } from "@/domain/entities/user";
 
-@Table({ tableName: 'users' })
+@Table({ tableName: 'users' ,
+ timestamps: true, 
+ createdAt: 'created_at', // Sequelize enregistrera la date de création dans cette colonne
+ updatedAt: 'updated_at',
+})
 export class UserModelPg extends Model<UserEntity> {
     // Implementation
     @Column({
@@ -14,21 +18,19 @@ export class UserModelPg extends Model<UserEntity> {
     @Column({ type: DataType.STRING })
     public name!: string;
 
-    @Column({ type: DataType.STRING })
+    @Column({ type: DataType.STRING , allowNull: false })
     public email!: string;
 
     @Column({ type: DataType.STRING })
     public password!: string;
    
     @Column({ type: DataType.STRING })
-    public accessToken?: string; 
+    public access_token?: string; 
 
-    @Column({ type: DataType.ARRAY(DataType.STRING) })
-    public role!: string; 
-    @Column({ type: DataType.DATE })
-    public created_at!: Date; 
-    
-    @Column({ type: DataType.DATE })
-    public updated_at!: Date; 
-
+    @Column({
+        type: DataType.ENUM("admin", "employee"), // ✅ ENUM correct
+        allowNull: false,
+    })
+    role!: "admin" | "employee";  
+   
 }
