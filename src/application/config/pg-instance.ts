@@ -3,6 +3,7 @@ import { Sequelize } from "sequelize-typescript";
 import { Logger } from "@tsclean/core";
 import { CONFIG_PG } from "@/application/config/environment";
 import { UserModelPg } from "@/infrastructure/driven-adapters/adapters/orm/sequelize/models/user-pg";
+import { ProductModelPg } from "@/infrastructure/driven-adapters/adapters/orm/sequelize/models/products-pg";
 
 /**
  * Class that generates a connection instance for Pg using the Singleton pattern
@@ -24,7 +25,8 @@ export class PgConfiguration {
         dialect: "postgres",
         // This array contains all the system models that are used for Pg.
         models: [
-          UserModelPg
+          UserModelPg , 
+          ProductModelPg
         ]
       }
     );
